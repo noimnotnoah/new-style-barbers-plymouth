@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Style Barbers — Plymouth's Sleekest Barber</title>
+    <meta name="description" content="New Style Barbers, Plymouth. Sleek, modern barbering in the city centre. Fresh cuts, sharp lines, premium service." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d0b15;
+            color: #e0d8f0;
+            line-height: 1.6;
+        }
+        h1, h2, h3, .display { font-family: 'Syne', sans-serif; }
+
+        /* Hero — deep purple, neon glow */
+        .hero {
+            background: linear-gradient(135deg, #0d0b15 0%, #1a1030 40%, #2a1040 100%);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; left: 50%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(160,80,255,0.15) 0%, transparent 70%);
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a050ff, #6a30d0, #a050ff, transparent);
+        }
+        .hero h1 {
+            position: relative;
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -3px;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #c8a0ff, #8a50ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero .tagline {
+            position: relative;
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: #a090c0;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .hero .location {
+            position: relative;
+            font-size: 0.9rem;
+            color: #6a50a0;
+            margin-bottom: 2rem;
+        }
+        .hero .cta-group { position: relative; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .hero .cta-primary {
+            padding: 0.85rem 2.5rem;
+            background: linear-gradient(135deg, #7a40e0, #a050ff);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 25px rgba(160,80,255,0.3);
+        }
+        .hero .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(160,80,255,0.4); }
+        .hero .cta-secondary {
+            padding: 0.85rem 2.5rem;
+            border: 1px solid rgba(160,80,255,0.3);
+            color: #c8a0ff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .hero .cta-secondary:hover { border-color: #a050ff; background: rgba(160,80,255,0.08); }
+
+        nav {
+            background: rgba(13,11,21,0.95);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            border-bottom: 1px solid rgba(160,80,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        nav a {
+            color: #a090c0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0; right: 0;
+            height: 2px;
+            background: #a050ff;
+            transform: scaleX(0);
+            transition: transform 0.2s;
+        }
+        nav a:hover { color: #d0c8f0; }
+        nav a:hover::after { transform: scaleX(1); }
+
+        .section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+        .section h2 .accent { color: #a050ff; }
+
+        /* About — card style */
+        .about-card {
+            background: linear-gradient(135deg, rgba(26,16,48,0.6), rgba(42,16,64,0.3));
+            border: 1px solid rgba(160,80,255,0.1);
+            border-radius: 16px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .about-card p { margin-bottom: 1rem; color: #b0a0c8; font-size: 1.05rem; }
+        .about-card .photo-placeholder {
+            background: linear-gradient(135deg, #1a1040, #2a1050);
+            border-radius: 12px;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5a4090;
+            font-size: 0.85rem;
+            border: 1px solid rgba(160,80,255,0.08);
+        }
+
+        /* Services — sleek cards */
+        .srv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .srv-card {
+            background: linear-gradient(135deg, rgba(26,16,48,0.5), rgba(42,16,64,0.2));
+            border: 1px solid rgba(160,80,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .srv-card:hover {
+            border-color: rgba(160,80,255,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(160,80,255,0.1);
+        }
+        .srv-card .emoji { font-size: 2rem; margin-bottom: 0.75rem; }
+        .srv-card h3 { font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+        .srv-card .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #a050ff;
+            margin-bottom: 0.5rem;
+        }
+        .srv-card p { font-size: 0.85rem; color: #8a78a8; }
+
+        /* Full-width promo */
+        .promo {
+            background: linear-gradient(135deg, #1a0a30, #2a1050);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .promo::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(160,80,255,0.3), transparent);
+        }
+        .promo h2 { color: #fff; font-size: 2rem; margin-bottom: 0.75rem; }
+        .promo p { color: #a090c0; margin-bottom: 1.5rem; }
+
+        /* Contact */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(26,16,48,0.6), rgba(42,16,64,0.3));
+            border: 1px solid rgba(160,80,255,0.1);
+            border-radius: 16px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .contact-card a { color: #c8a0ff; text-decoration: none; }
+        .contact-card a:hover { text-decoration: underline; }
+        .contact-card p { margin-bottom: 0.75rem; }
+        .hours dt { font-weight: 600; color: #fff; margin-top: 0.75rem; }
+        .hours dd { margin-left: 0; color: #8a78a8; }
+
+        footer {
+            background: #08070e;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5a4080;
+            border-top: 1px solid rgba(160,80,255,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-card, .contact-card { grid-template-columns: 1fr; }
+            .srv-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.6rem; }
+            nav { gap: 1.2rem; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#promo">Offers</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+    <p class="tagline">Sleek · Modern · Plymouth</p>
+    <h1>New Style</h1>
+    <p class="tagline" style="font-size:0.95rem;letter-spacing:3px;color:#7a60b0;">Barbers</p>
+    <p class="location">📍 City Centre · Plymouth</p>
+    <div class="cta-group">
+        <a class="cta-primary" href="#contact">Get in Touch</a>
+        <a class="cta-secondary" href="#services">View Prices</a>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <h2>What's <span class="accent">New Style</span>?</h2>
+    <div class="about-card">
+        <div>
+            <p>New Style Barbers brings a sleek, contemporary edge to Plymouth's barber scene. We're all about precision — clean lines, sharp fades, and a vibe that's as fresh as your cut.</p>
+            <p>From the moment you walk in, you'll feel the difference. Dark, stylish interiors, premium products, and barbers who take their craft seriously. Every cut is tailored to your face shape, hair type, and personal style.</p>
+        </div>
+        <div class="photo-placeholder">📸 Studio</div>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <h2>Prices &amp; <span class="accent">Services</span></h2>
+    <div class="srv-grid">
+        <div class="srv-card">
+            <div class="emoji">💈</div>
+            <h3>New Style Cut</h3>
+            <div class="price">£22</div>
+            <p>Wash, precision cut &amp; product finish</p>
+        </div>
+        <div class="srv-card">
+            <div class="emoji">⚡</div>
+            <h3>Skin Fade</h3>
+            <div class="price">£26</div>
+            <p>Seamless blend, any guard</p>
+        </div>
+        <div class="srv-card">
+            <div class="emoji">🧔</div>
+            <h3>Beard Sculpt</h3>
+            <div class="price">£13</div>
+            <p>Hot towel, oil &amp; razor finish</p>
+        </div>
+        <div class="srv-card">
+            <div class="emoji">✨</div>
+            <h3>Cut &amp; Beard</h3>
+            <div class="price">£32</div>
+            <p>Combo deal — save £3</p>
+        </div>
+        <div class="srv-card">
+            <div class="emoji">👦</div>
+            <h3>Kids Cut</h3>
+            <div class="price">£10</div>
+            <p>Under 12, patient styling</p>
+        </div>
+        <div class="srv-card">
+            <div class="emoji">🪒</div>
+            <h3>Wet Shave</h3>
+            <div class="price">£18</div>
+            <p>Traditional cut-throat shave</p>
+        </div>
+    </div>
+</section>
+
+<section class="promo" id="promo">
+    <h2>✨ Student Discount</h2>
+    <p>Show your NUS card and get <strong>15% off</strong> any cut. Mon–Thu only.</p>
+    <a class="hero cta-primary" href="#contact" style="display:inline-block;">Claim Offer</a>
+</section>
+
+<section class="section" id="contact">
+    <h2>Get <span class="accent">Connected</span></h2>
+    <div class="contact-card">
+        <div>
+            <p><strong>New Style Barbers</strong><br />22 Cornwall Street<br />Plymouth PL1 1LP</p>
+            <p>📞 01752 345678</p>
+            <p>✉️ <a href="mailto:newstylebarbersplymouth@gmail.com">newstylebarbersplymouth@gmail.com</a></p>
+        </div>
+        <div>
+            <dl class="hours">
+                <dt>Monday – Friday</dt>
+                <dd>9:00 am – 6:30 pm</dd>
+                <dt>Saturday</dt>
+                <dd>8:30 am – 5:00 pm</dd>
+                <dt>Sunday</dt>
+                <dd>11:00 am – 3:00 pm</dd>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 New Style Barbers · Sleek grooming · Plymouth</p>
+</footer>
+
+</body>
+</html>
